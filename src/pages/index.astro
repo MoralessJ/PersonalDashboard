@@ -1,0 +1,46 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+
+import Card from "../components/Proyects/Card.astro";
+---
+
+<Layout title="Personal">
+    <header>
+        <Header />
+    </header>
+    <main class="bg-white rounded-xl w-10/12 mx-auto my-0">
+        <header class="flex justify-between m-3 items-center">
+            <h1 class="text-slate-900 text-2xl font-bold p-5">Proyectos</h1>
+            <a
+                href=""
+                class="rounded-xl text-normal font-bold px-2 py-1 mx-3 bg-slate-500 text-white"
+                >Crear Proyecto</a
+            >
+        </header>
+        <body>
+            <div class="grid grid-cols-3 gap-x-1 gap-y-1 mx-10">
+                <Card
+                    id="1"
+                    type="Desarrollo Web"
+                    details="Crear página de proyectos personales usando Astro"
+                    percentaje="75"
+                />
+
+                <Card
+                    id="1"
+                    type="Desarrollo Web"
+                    details="Crear página de proyectos personales usando Astro"
+                    percentaje="1"
+                />
+
+                <Card
+                    id="1"
+                    type="Desarrollo Web"
+                    details="Crear página de proyectos personales usando Astro"
+                    percentaje="50"
+                />
+            </div>
+        </body>
+    </main>
+</Layout>
