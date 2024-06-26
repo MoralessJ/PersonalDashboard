@@ -1,46 +1,64 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Header from "../components/Header.astro";
-
-import Card from "../components/Proyects/Card.astro";
+import { CardResume } from "../components/ResumeCards/ResumeCard";
+import { CardProyect } from "../components/Proyects/CardProyect";
+import { CardTask } from "../components/Tasks/CardTask";
+import { Quote } from "../components/Quote";
+import Button from "../components/Utils/Button.astro";
 ---
 
 <Layout title="Personal">
-    <header>
-        <Header />
-    </header>
-    <main class="bg-white rounded-xl w-10/12 mx-auto my-0">
+    <div class="">
         <header class="flex justify-between m-3 items-center">
-            <h1 class="text-slate-900 text-2xl font-bold p-5">Proyectos</h1>
-            <a
-                href=""
-                class="rounded-xl text-normal font-bold px-2 py-1 mx-3 bg-slate-500 text-white"
-                >Crear Proyecto</a
-            >
+            <h1 class="text-slate-900 text-2xl font-bold p-3">Dashboard</h1>
         </header>
         <body>
-            <div class="grid grid-cols-3 gap-x-1 gap-y-1 mx-10">
-                <Card
-                    id="1"
-                    type="Desarrollo Web"
-                    details="Crear página de proyectos personales usando Astro"
-                    percentaje="75"
-                />
+            <div class="flex mx-5 my-5 gap-5">
+                <CardResume type={1} />
+                <CardResume type={2} />
+                <CardResume type={3} />
+                <CardResume type={4} />
+            </div>
+            <div class="m-5">
+                <div class="border border-opacity-20 border-gray-500 rounded-lg p-5">
+                    <h2 class="font-bold text-slate-900 mb-3">Últimos Proyectos</h2>
+        
+                    <div class="grid grid-cols-3 gap-x-3 gap-y-3 mb-3">
+                        <CardProyect title="Frontend" details="Desarrollo visual del dashboard usando Astro y React" />
+                        <CardProyect title="Backend" details="Agregar MVC y CRUD de Proyectos y Tareas" />
+                        <CardProyect title="Fullstack" details="Agregar funcionalidades multiusuarios." />
+                    </div>
+                    <Button />
+                </div>
+                <div id="tasks-and-info" class=" mt-5">
+                    <div class="border border-opacity-20 border-gray-500 rounded-lg p-5">
+                        <h2 class="font-bold text-slate-900 mb-3">Últimas tareas</h2>
+            
+                        <div class="flex flex-col gap-1 mb-3">
+                            <CardTask details="Terminar el dashboard inicial" />
+                            <CardTask details="Añadir sidebar fijo" />
+                            <CardTask details="Terminar el dashboard inicial" />
+                        </div>
+                        <Button />
+                    </div>
 
-                <Card
-                    id="1"
-                    type="Desarrollo Web"
-                    details="Crear página de proyectos personales usando Astro"
-                    percentaje="1"
-                />
-
-                <Card
-                    id="1"
-                    type="Desarrollo Web"
-                    details="Crear página de proyectos personales usando Astro"
-                    percentaje="50"
-                />
+                    <div class="border border-opacity-20 border-gray-500 rounded-lg p-5">
+                        <h2 class="font-bold text-slate-900 mb-3">Nota del día</h2>
+            
+                        <div class="grid grid-cols-3 gap-x-3 gap-y-3">
+                            <Quote quote="Hola">
+                        </div>
+                    </div>
+                </div>
             </div>
         </body>
-    </main>
+    </div>
 </Layout>
+
+<style>
+    #tasks-and-info {
+        display: grid;
+        grid-template-columns: 3fr 1fr;
+        column-gap: 20px;
+    }
+</style>
